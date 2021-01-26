@@ -1,5 +1,6 @@
 package com.mercadopago.android.px.internal.features.payment_result.components;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import androidx.annotation.NonNull;
 import android.view.LayoutInflater;
@@ -47,6 +48,7 @@ public class InstructionReferenceComponent
     @Override
     public View render(@NonNull final ViewGroup parent) {
         final Context context = parent.getContext();
+        @SuppressLint("InflateParams")
         final View referenceView =
             LayoutInflater.from(context).inflate(R.layout.px_payment_result_instruction_reference, null);
         final MPTextView labelTextView = referenceView.findViewById(R.id.mpsdkReferenceLabel);

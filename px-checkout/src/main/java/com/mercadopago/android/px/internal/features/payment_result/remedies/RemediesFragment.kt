@@ -49,7 +49,7 @@ internal class RemediesFragment : Fragment(), Remedies.View, CvvRemedy.Listener,
         }
     }
 
-    override fun onAttach(context: Context?) {
+    override fun onAttach(context: Context) {
         super.onAttach(context)
         if (context is Listener) {
             listener = context

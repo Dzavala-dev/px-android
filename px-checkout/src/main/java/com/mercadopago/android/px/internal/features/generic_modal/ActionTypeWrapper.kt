@@ -5,7 +5,7 @@ import com.mercadopago.android.px.model.ExpressMetadata
 class ActionTypeWrapper(var items: List<ExpressMetadata>) {
 
     val indexToReturn: Int
-    @ActionType val actionType: String
+    val actionType: ActionType
 
     init {
         var indexOfNewCard = -1

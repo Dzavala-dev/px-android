@@ -116,7 +116,7 @@ public interface ExpressPayment {
 
         void handlePrePaymentAction(@NonNull final PayButton.OnReadyForPaymentCallback callback);
 
-        void handleGenericDialogAction(@NonNull @ActionType final String type);
+        void handleGenericDialogAction(@NonNull final ActionType type);
 
         void onPaymentExecuted(@NonNull final PaymentConfiguration paymentConfiguration);
 

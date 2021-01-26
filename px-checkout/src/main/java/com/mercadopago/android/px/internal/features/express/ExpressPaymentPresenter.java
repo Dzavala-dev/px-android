@@ -483,13 +483,13 @@ import java.util.Set;
     }
 
     @Override
-    public void handleGenericDialogAction(@NonNull @ActionType final String type) {
+    public void handleGenericDialogAction(@NonNull final ActionType type) {
         switch (type) {
-        case ActionType.PAY_WITH_OTHER_METHOD:
-        case ActionType.PAY_WITH_OFFLINE_METHOD:
+        case PAY_WITH_OTHER_METHOD:
+        case PAY_WITH_OFFLINE_METHOD:
             getView().setPagerIndex(actionTypeWrapper.getIndexToReturn());
             break;
-        case ActionType.ADD_NEW_CARD:
+        case ADD_NEW_CARD:
             getView().setPagerIndex(actionTypeWrapper.getIndexToReturn());
             getView().startAddNewCardFlow(
                 new CardFormWrapper(paymentSettingRepository, trackingRepository));

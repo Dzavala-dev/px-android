@@ -18,7 +18,6 @@ android {
         consumerProguardFiles 'proguard-rules.pro'
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
         if (!project.hasProperty('production')) {
-            resConfigs("en", "xxhdpi")
             aaptOptions.cruncherEnabled = false
         }
     }

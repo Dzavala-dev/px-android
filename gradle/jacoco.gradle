@@ -1,7 +1,7 @@
 apply plugin: 'jacoco'
 
 jacoco {
-    toolVersion = '0.8.1'
+    toolVersion = '0.8.6'
 }
 
 tasks.withType(Test) {
@@ -10,33 +10,14 @@ tasks.withType(Test) {
 
 
 task jacocoTestReport(type:JacocoReport, dependsOn:['testDebugUnitTest', 'createDebugCoverageReport']) {
-
     reports {
         xml.enabled = true
         html.enabled = true
     }
 
-    def fileFilter = ['**/R.class',
-                      '**/R$*.class',
-                      '**/BuildConfig.*',
-                      '**/Manifest*.*',
-                      '**/*Test*.*',
-                      'android/**/*.*',
-                      '**/model/*.*',
-                      '**/model/**',
-                      '**/models/*.*',
-                      '**/models/**',
-                      '**/viewmodel/*.*',
-                      '**/viewmodel/**']
-
-    def debugTree = fileTree(dir:"$project.buildDir/intermediates/classes/debug", excludes:fileFilter)
-    def mainSrc = "$project.projectDir/src/main/java"
-
-    sourceDirectories = files([mainSrc])
-    classDirectories = files([debugTree])
-    executionData = fileTree(dir:project.buildDir, includes:[
-        'jacoco/testDebugUnitTest.exec', 'outputs/code-coverage/connected/*coverage.ec'
-    ])
+    getExecutionData().setFrom(project.files(executionData))
+    getSourceDirectories().setFrom(project.files(sourceDirectories))
+    getClassDirectories().setFrom(classDirectories)
 }
 
 /**
